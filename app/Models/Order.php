@@ -8,4 +8,12 @@ use Illuminate\Database\Eloquent\Model;
 class Order extends Model
 {
     use HasFactory;
+
+    public function product(){
+        return $this->hasOne(Skateboard::class,'id','product_id');
+    }
+
+    public function color(){
+        return $this->hasOne(Color::class,'id','color_id');
+    }
 }

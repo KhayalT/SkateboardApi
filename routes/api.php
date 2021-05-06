@@ -18,8 +18,16 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
 
-Route::get('/products',[\App\Http\Controllers\SkateboardController::class,'index'])
-    ->name('skateboard.all');
 
-Route::post('/order',[\App\Http\Controllers\OrderController::class,'store'])
-    ->name('order.post');
+Route::prefix('/products')->group(function () {
+    Route::get('/', [\App\Http\Controllers\SkateboardController::class, 'index'])
+        ->name('skateboard.all');
+});
+
+Route::prefix('/orders')->group(function () {
+    Route::get('/', [\App\Http\Controllers\OrderController::class, 'index'])
+        ->name('order.all');
+
+    Route::post('/', [\App\Http\Controllers\OrderController::class, 'store'])
+        ->name('order.post');
+});

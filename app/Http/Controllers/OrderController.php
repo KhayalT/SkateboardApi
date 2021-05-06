@@ -9,9 +9,15 @@ use Illuminate\Http\Request;
 
 class OrderController extends Controller
 {
+    public function index(){
+        $orders=Order::latest()->paginate(10);
+        return OrderResource::collection($orders);
+    }
+
     public function store(OrderRequest $request)
     {
         $order = new Order();
+
         $order->product_id=$request->input('product_id');
         $order->color_id=$request->input('color_id');
         $order->amount=$request->input('amount');
@@ -20,6 +26,7 @@ class OrderController extends Controller
         $order->phone_number=$request->input('phone_number');
         $order->address=$request->input('address');
         $order->save();
+
         return new OrderResource($order);
     }
 }
