@@ -19,7 +19,7 @@ class SkateboardResource extends JsonResource
             'skateboard_name' => $this->skateboard_name,
             'type' => $this->type->name,
             'price' => $this->price . " AZN",
-            'colors'=>$this->colors->count()>0 ? $this->colors : 'There is no color,Sorry!',
+            'colors'=>$this->colors->count()>0 ? $this->colors->pluck('name') : 'There is no color,Sorry!',
             'print_price' => $this->print_price ? $this->print_price : "This skateboard hasn't any print price",
             'created_at' => $this->created_at->diffForHumans()
         ];

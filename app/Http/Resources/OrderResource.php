@@ -23,6 +23,8 @@ class OrderResource extends JsonResource
             'email'=>$this->email ? $this->email : "There is no email",
             'phone_number'=>$this->phone_number ? $this->phone_number : "There is no phone number",
             'address'=>$this->address,
+            'delivery_date'=>$this->delivery_date ? $this->delivery_date : "The seller didn't update the delivery date",
+            'preparation_date'=>$this->preparation_date ? $this->preparation_date : "The seller didn't update the preparation date",
             'created_at'=>$this->created_at->toDateTimeString(),
             'updated_at'=>$this->updated_at->toDateTimeString(),
         ];

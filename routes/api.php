@@ -30,4 +30,7 @@ Route::prefix('/orders')->group(function () {
 
     Route::post('/', [\App\Http\Controllers\OrderController::class, 'store'])
         ->name('order.post');
+
+    Route::put('/{order}',[\App\Http\Controllers\OrderController::class,'update'])
+        ->name('order.put');
 });

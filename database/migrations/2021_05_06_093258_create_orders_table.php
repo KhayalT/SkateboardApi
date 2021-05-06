@@ -22,6 +22,8 @@ class CreateOrdersTable extends Migration
             $table->string('email')->nullable();
             $table->string('phone_number')->nullable();
             $table->string('address');
+            $table->dateTime('delivery_date')->nullable();
+            $table->dateTime('preparation_date')->nullable();
             $table->timestamps();
 
             $table->foreign('product_id')->references('id')->on('skateboards')->onDelete('cascade');
