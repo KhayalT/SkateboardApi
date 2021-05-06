@@ -10,4 +10,8 @@ class Type extends Model
     use HasFactory;
 
     public $timestamps=false;
+
+    public function skateboards(){
+        return $this->hasMany(Skateboard::class,'id','type_id');
+    }
 }
