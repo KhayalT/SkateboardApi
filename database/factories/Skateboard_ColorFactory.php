@@ -2,10 +2,12 @@
 
 namespace Database\Factories;
 
+use App\Models\Color;
+use App\Models\Skateboard;
 use App\Models\Skateboard_Color;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-class SkateboardColorFactory extends Factory
+class Skateboard_ColorFactory extends Factory
 {
     /**
      * The name of the factory's corresponding model.
@@ -22,7 +24,8 @@ class SkateboardColorFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'skateboard_id'=>Skateboard::all()->random()->id,
+            'color_id'=>Color::all()->random()->id,
         ];
     }
 }

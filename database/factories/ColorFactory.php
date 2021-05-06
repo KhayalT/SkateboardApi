@@ -22,7 +22,9 @@ class ColorFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'name'=>$this->faker->colorName,
+            'hex_code'=>$this->faker->hexColor,
+
         ];
     }
 }

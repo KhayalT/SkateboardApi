@@ -15,8 +15,8 @@ class CreateSkateboardsTable extends Migration
     {
         Schema::create('skateboards', function (Blueprint $table) {
             $table->id();
-            $table->string('skateboard_name');
             $table->unsignedBigInteger('type_id');
+            $table->string('skateboard_name');
             $table->decimal('price');
             $table->decimal('print_price')->nullable();
             $table->timestamps();

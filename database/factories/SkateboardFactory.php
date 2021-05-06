@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Models\Skateboard;
+use App\Models\Type;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 class SkateboardFactory extends Factory
@@ -22,7 +23,10 @@ class SkateboardFactory extends Factory
     public function definition()
     {
         return [
-            //
+            'type_id'=>Type::all()->random()->id,
+            'skateboard_name'=>$this->faker->word,
+            'price'=>rand(10,1000),
+            'print_price'=>rand(1,100),
         ];
     }
 }
