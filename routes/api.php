@@ -20,3 +20,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/products',[\App\Http\Controllers\SkateboardController::class,'index'])
     ->name('skateboard.all');
+
+Route::post('/order',[\App\Http\Controllers\OrderController::class,'store'])
+    ->name('order.post');
